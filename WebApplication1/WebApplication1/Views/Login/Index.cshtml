@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<style>
+	h3.tittle {
+		text-align: center;
+		font-size: 2.5em;
+		color: #2c363e;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+		font-weight: 600;
+	}
+	/* Sayfayı ortalamak için */
+	.main-content-w3layouts-agileits {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+
+	/* Formu ortalamak için */
+	.login {
+		width: 400px; /* Formun genişliği */
+	}
+
+	/* Google ile Giriş Yap düğmesini ortalamak için */
+	form.form-horizontal {
+		text-align: center;
+	}
+
+		/* Google ile Giriş Yap düğmesi stilini özelleştirme */
+		form.form-horizontal .btn-default {
+			display: block;
+			margin: 0 auto;
+			background-color: #dd4b39;
+			color: #fff;
+			border-color: #dd4b39;
+			padding: 10px 20px;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+		}
+
+			/* Google ile Giriş Yap düğmesi üzerine gelince */
+			form.form-horizontal .btn-default:hover {
+				background-color: #c23321;
+				border-color: #c23321;
+			}
+
+
+</style>
+
+<section class="main-content-w3layouts-agileits">
+	<div class="container">
+		<h3 class="tittle">Oturum Aç</h3>
+		<div class="row inner-sec">
+			<div class="login p-5 bg-light mx-auto mw-100">
+				<form method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1 mb-2">Mail Adresi</label>
+						<input type="email" class="form-control" name ="AdvertiserMail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+						<small id="emailHelp" class="form-text text-muted">Bu mail adresini kimseyle paylaşmayacağız.</small>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1 mb-2">Şifre</label>
+						<input type="password" class="form-control" name="AdvertiserPassword" id="exampleInputPassword1" placeholder="" required="">
+					</div>
+					<div class="form-check mb-2">
+						<input type="checkbox" class="form-check-input" id="exampleCheck1">
+						<label class="form-check-label" for="exampleCheck1">Beni Hatırla</label>
+					</div>
+					<button type="submit" class="btn btn-primary submit mb-4">Oturum Aç</button>
+					<h6><a href="/Register/Index"> Bir hesabınız yok mu?</a></h6>
+					<h6><a href="https://api.whatsapp.com/send/?phone=%2B905070646564&text&type=phone_number&app_absent=0"> Şifrenizi mi unuttunuz,Bizimle iletişime geçin!</a></h6>
+				</form>
+@* 				<form asp-controller="Login" asp-action="ExternalLogin" method="post" class="form-horizontal">
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-10">
+							<button type="submit" class="btn btn-default">Google ile Giriş Yap</button>
+						</div>
+					</div>
+				</form> *@
+			</div>
+		</div>
+	</div>
+</section>
+

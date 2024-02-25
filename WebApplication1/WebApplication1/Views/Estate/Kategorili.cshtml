@@ -1,0 +1,108 @@
+﻿@using EntityLayer.Concrate
+@model List<Estate>
+
+@{
+	ViewData["Title"] = "Kategorili";
+	Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<style>
+	h3.tittle {
+		text-align: center;
+		font-size: 2.5em;
+		color: #2c363e;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+		font-weight: 600;
+	}
+	.left-blog-info-w3layouts-agileits .card img {
+		width: 100%; /* Resimlerin kart genişliğine uygun genişlikte olması */
+		height: 200px; /* Resimlerin sabit yüksekliği (istediğiniz değeri ayarlayın) */
+		object-fit: cover; /* Resimlerin orantılı bir şekilde sığması */
+	}
+
+	.left-blog-info-w3layouts-agileits .card .card-text {
+		max-height: 100px; /* Metnin maksimum yüksekliği (istediğiniz değeri ayarlayın) */
+		overflow: hidden; /* Metnin kartın dışına taşmasını önler */
+	}
+
+	.themecolor {
+		background-color: #dec72b;
+		color: black;
+	}
+
+	a.btn.btn-primary.read-m {
+		border-radius: 0;
+		padding: 0.55em 2em;
+		letter-spacing: 1px;
+		background: #dec72b;
+		border: none;
+	}
+
+		a.btn.btn-primary.read-m:hover, a.btn.btn-primary.read-m:focus {
+			background: #fff;
+			color: #222;
+			box-shadow: none !important;
+		}
+
+	ul.blog-icons i {
+		color: #dec72b;
+	}
+
+	.bann {
+		background-color: #dec72b;
+		color: black;
+		transition: color 0.3s; /* Renk değişikliğinin süresi */
+	}
+
+		.bann:hover {
+			color: white; /* Hover durumunda beyaz renk */
+		}
+
+</style>
+
+
+@await Component.InvokeAsync("CategoryList")
+
+<section class="main-content-w3layouts-agileits">
+	<div class="container">
+		<h3 class="tittle">SEÇTİĞİNİZ KATEGORİDEKİ İLANLAR</h3>
+		<div class="inner-sec">
+			<!--left-->
+			<div class="left-blog-info-w3layouts-agileits text-left">
+				<div class="row">
+					@foreach (var item in Model)
+					{
+						<div class="col-lg-4 card">
+							<a href="/Estate/EstateReadAll/@item.EstateID">
+								<img src="@item.EstateImage" class="card-img-top img-fluid" alt="">
+							</a>
+							<div class="card-body">
+								<ul class="blog-icons my-4">
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i> @item.EstateCreateDate.ToString("yyyy-MM-dd")
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fa fa-bars"></i> @item.Category.CategoryName
+										</a>
+									</li>
+
+								</ul>
+								<h5 class="card-title">
+									<a href="/Estate/EstateReadAll/@item.EstateID">@item.EstateTitle</a>
+								</h5>
+								@* <p class="card-text mb-3">@item.EstateContent</p> *@
+								@* <a href="/Estate/EstateReadAll/@item.EstateID" class="btn btn-primary read-m"> >@item.EstatePrice ₺</a> *@
+								<a href="/Estate/EstateReadAll/@item.EstateID" class="btn btn-primary read-m">
+									>@(string.Format("{0:#,###}", item.EstatePrice)) ₺
+								</a>
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,275 @@
+﻿@model EntityLayer.Concrate.Estate
+@{
+    ViewData["Title"] = "EstateAdd";
+    Layout = "~/Views/Shared/Advertiser_Layout.cshtml";
+    var categoryList = new SelectList(new[]
+        {
+        new { Value = 1, Text = "Daire" },
+        new { Value = 2, Text = "Arsa-Tarla" },
+        new { Value = 3, Text = "Araba" }
+    }, "Value", "Text");
+}
+<h1>İlan Ekle</h1>
+<br />
+
+@using (Html.BeginForm("EstateAdd", "Estate", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Label("İlan Başlığı")
+    @Html.TextBoxFor(x => x.EstateTitle, new { @class = "form-control", @placeholder = "İlan Başlığını Giriniz." })
+    @Html.ValidationMessageFor(x => x.EstateTitle, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("İlan Kategorisi")
+    @Html.DropDownListFor(x => x.CategoryID, categoryList, new { @class = "form-control" })
+    <br />
+    <p style="background-color:red; color:white;">İlan verdikten sonra FOTOĞRAFINIZ GÜNCELLENEMEYECEKTİR!</p>
+    @Html.Label("Ürün Görseli (Zorunlu)")
+    <input type="file" id="estateImage" name="estateImage" class="form-control" onchange="convertToURL()"></input>
+    <br />
+    <button type="button" onclick="convertToURL('estateImage', 'previewImage', 'imageUrlTextbox', 'imageUrlField')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.HiddenFor(x => x.EstateImage, new { id = "imageUrlField" })
+    <br />
+    <label for="imageUrlTextbox">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox" name="EstateImageUrl" class="form-control" readonly />
+
+    <br/>
+    @Html.Label("Ürün Görseli 2")
+    <input type="file" id="estateImage2" name="estateImage2" class="form-control" onchange="convertToURL('estateImage2', 'previewImage2', 'imageUrlTextbox2', 'imageUrlField2')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage2', 'previewImage2', 'imageUrlTextbox2', 'imageUrlField2')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage2" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl2", null, new { id = "imageUrlField2" })
+    <br />
+    <label for="imageUrlTextbox2">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox2" name="EstateImageUrl2" class="form-control" readonly />
+    <br />
+
+    @Html.Label("Ürün Görseli 3")
+    <input type="file" id="estateImage3" name="estateImage3" class="form-control" onchange="convertToURL('estateImage3', 'previewImage3', 'imageUrlTextbox3', 'imageUrlField3')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage3', 'previewImage3', 'imageUrlTextbox3', 'imageUrlField3')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage3" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl3", null, new { id = "imageUrlField3" })
+    <br />
+    <label for="imageUrlTextbox2">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox3" name="EstateImageUrl3" class="form-control" readonly />
+    <br />
+
+    @Html.Label("Ürün Görseli 4")
+    <input type="file" id="estateImage4" name="estateImage4" class="form-control" onchange="convertToURL('estateImage4', 'previewImage4', 'imageUrlTextbox4', 'imageUrlField4')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage4', 'previewImage4', 'imageUrlTextbox4', 'imageUrlField4')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage4" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl4", null, new { id = "imageUrlField4" })
+    <br />
+    <label for="imageUrlTextbox4">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox4" name="EstateImageUrl4" class="form-control" readonly />
+    <br />
+
+    @Html.Label("Ürün Görseli 5")
+    <input type="file" id="estateImage5" name="estateImage5" class="form-control" onchange="convertToURL('estateImage5', 'previewImage5', 'imageUrlTextbox5', 'imageUrlField5')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage5', 'previewImage5', 'imageUrlTextbox5', 'imageUrlField5')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage5" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl5", null, new { id = "imageUrlField5" })
+    <br />
+    <label for="imageUrlTextbox5">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox5" name="EstateImageUrl5" class="form-control" readonly />
+    <br />
+
+    @Html.Label("Ürün Görseli 6")
+    <input type="file" id="estateImage6" name="estateImage6" class="form-control" onchange="convertToURL('estateImage6', 'previewImage6', 'imageUrlTextbox6', 'imageUrlField6')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage6', 'previewImage6', 'imageUrlTextbox6', 'imageUrlField6')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage6" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl6", null, new { id = "imageUrlField6" })
+    <br />
+    <label for="imageUrlTextbox6">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox6" name="EstateImageUrl6" class="form-control" readonly />
+    <br />
+
+    @Html.Label("Ürün Görseli 7")
+    <input type="file" id="estateImage7" name="estateImage7" class="form-control" onchange="convertToURL('estateImage7', 'previewImage7', 'imageUrlTextbox7', 'imageUrlField7')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage7', 'previewImage7', 'imageUrlTextbox7', 'imageUrlField7')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage7" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl7", null, new { id = "imageUrlField7" })
+    <br />
+    <label for="imageUrlTextbox7">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox7" name="EstateImageUrl7" class="form-control" readonly />
+    <br />
+
+    @Html.Label("Ürün Görseli 8")
+    <input type="file" id="estateImage8" name="estateImage8" class="form-control" onchange="convertToURL('estateImage8', 'previewImage8', 'imageUrlTextbox8', 'imageUrlField8')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage8', 'previewImage8', 'imageUrlTextbox8', 'imageUrlField8')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage8" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl8", null, new { id = "imageUrlField8" })
+    <br />
+    <label for="imageUrlTextbox8">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox8" name="EstateImageUrl8" class="form-control" readonly />
+    <br />
+
+    @Html.Label("Ürün Görseli 9")
+    <input type="file" id="estateImage9" name="estateImage9" class="form-control" onchange="convertToURL('estateImage9', 'previewImage9', 'imageUrlTextbox9', 'imageUrlField9')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage9', 'previewImage9', 'imageUrlTextbox9', 'imageUrlField9')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage9" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl9", null, new { id = "imageUrlField9" })
+    <br />
+    <label for="imageUrlTextbox9">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox9" name="EstateImageUrl9" class="form-control" readonly />
+    <br />
+    @Html.Label("Ürün Görseli 10")
+    <input type="file" id="estateImage10" name="estateImage10" class="form-control" onchange="convertToURL('estateImage10', 'previewImage10', 'imageUrlTextbox10', 'imageUrlField10')"></input>
+    <br />
+    <button disabled type="button" onclick="convertToURL('estateImage10', 'previewImage10', 'imageUrlTextbox10', 'imageUrlField10')" class="btn btn-info">Resmi Yükle</button>
+    <br />
+    <img id="previewImage10" src="#" alt="Resim Önizleme" style="display: none; max-width: 200px; max-height: 200px;">
+    <br />
+    @Html.Hidden("EstateImageUrl10", null, new { id = "imageUrlField10" })
+    <br />
+    <label for="imageUrlTextbox10">Resim URL'si:</label>
+    <input type="text" id="imageUrlTextbox10" name="EstateImageUrl10" class="form-control" readonly />
+    <br />
+
+    @Html.Label("Ürün İçeriği")
+    @Html.TextAreaFor(x => x.EstateContent, 10, 3, new { @class = "form-control", @placeholder = "Ürün İçeriğini Giriniz." })
+    @Html.ValidationMessageFor(x => x.EstateContent, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Ürün Fiyatı")
+    @Html.TextBoxFor(x => x.EstatePrice, new { @class = "form-control", @type = "number", @placeholder = "Ürün Fiyatını Giriniz." })
+    @Html.ValidationMessageFor(x => x.EstatePrice, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Özellik-1")
+    @Html.TextBoxFor(x => x.EstateOzellik1, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-2")
+    @Html.TextBoxFor(x => x.EstateOzellik2, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-3")
+    @Html.TextBoxFor(x => x.EstateOzellik3, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-4")
+    @Html.TextBoxFor(x => x.EstateOzellik4, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-5")
+    @Html.TextBoxFor(x => x.EstateOzellik5, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-6")
+    @Html.TextBoxFor(x => x.EstateOzellik6, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-7")
+    @Html.TextBoxFor(x => x.EstateOzellik7, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-8")
+    @Html.TextBoxFor(x => x.EstateOzellik8, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-9")
+    @Html.TextBoxFor(x => x.EstateOzellik9, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-10")
+    @Html.TextBoxFor(x => x.EstateOzellik10, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-11")
+    @Html.TextBoxFor(x => x.EstateOzellik11, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-12")
+    @Html.TextBoxFor(x => x.EstateOzellik12, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-13")
+    @Html.TextBoxFor(x => x.EstateOzellik13, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-14")
+    @Html.TextBoxFor(x => x.EstateOzellik14, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    @Html.Label("Özellik-15")
+    @Html.TextBoxFor(x => x.EstateOzellik15, new { @class = "form-control", @placeholder = "Özellik Giriniz." })
+    <br />
+    <br />
+    @Html.Label("İlan Sahibinin Notu")
+    @Html.TextAreaFor(x => x.EstateNotes, 10, 3, new { @class = "form-control", @placeholder = "Bu alanı sadece ilan sahibi görecektir." })
+    <br />
+    <button type="submit" class="btn btn-gradient-success">Yeni İlan Oluştur</button>
+}
+
+<script>
+    function convertToURL(inputId, previewId, textboxId, hiddenId) {
+        const fileInput = document.getElementById(inputId);
+        const previewImage = document.getElementById(previewId);
+        const imageUrlTextbox = document.getElementById(textboxId);
+        const imageUrlField = document.getElementById(hiddenId);
+
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = function () {
+            previewImage.src = reader.result;
+            previewImage.style.display = 'block';
+
+            // Dosya adının başına tarih-saat ekleyin
+            const dateTimeNow = new Date().toISOString().replace(/:/g, '-');
+            const fileName = `${dateTimeNow}_${fileInput.files[0].name}`;
+
+            // Resmin URL'sini oluşturuyoruz
+            const baseUrl = ""; // Sunucunun adresini buraya yazın
+            const imageUrl = `${baseUrl}/UploadFile/${fileName}`; // Resmin URL'sini oluşturuyoruz
+
+            // Resmin URL'sini yazı alanına ve gizli alana ekliyoruz
+            imageUrlTextbox.value = imageUrl;
+            imageUrlField.value = imageUrl;
+
+            // Dosyayı wwwroot/UploadFile dizinine yükle ve belirtilen klasöre kopyala
+            uploadAndCopyImage(file, fileName);
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            previewImage.src = "";
+        }
+    }
+
+    function uploadAndCopyImage(file, fileName) {
+        const formData = new FormData();
+        formData.append("image", file, fileName); // Dosya adını formData'ya ekleyin
+
+        fetch("/Estate/UploadAndCopyImage", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Resim yüklenirken bir hata oluştu.");
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log(data); // Yükleme ve kopyalama işlemi başarıyla tamamlandı
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+</script>
+
+
+

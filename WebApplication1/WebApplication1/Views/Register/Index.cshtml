@@ -1,0 +1,63 @@
+﻿@model EntityLayer.Concrate.Advertiser
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<style>
+    h3.tittle {
+        text-align: center;
+        font-size: 2.5em;
+        color: #2c363e;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+        font-weight: 600;
+    }
+</style>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Kayıt Ol</h3>
+        <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto mw-100">
+                @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+                {
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Adınız Soyadınız</label>
+                            @Html.TextBoxFor(x => x.AdvertiserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AdvertiserName,"",new{@class="text-danger"})
+                            @*<input type="text" class="form-control" id="validationDefault01" name="AdvertiserName" placeholder="" required="">*@
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">Mail Adresiniz</label>
+                            @Html.TextBoxFor(x => x.AdvertiserMail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AdvertiserMail, "", new { @class = "text-danger" })
+                            @*<input type="email" class="form-control" id="validationDefault02" name="AdvertiserMail" placeholder="" required="">*@
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1 mb-2">
+                                Şifreniz
+                            </label>
+                            @Html.TextBoxFor(x => x.AdvertiserPassword, new { @class = "form-control", @type = "password" })
+                            @Html.ValidationMessageFor(x => x.AdvertiserPassword, "", new { @class = "text-danger" })
+                            @*<input type="password" class="form-control" id="AdvertiserPassword" name="AdvertiserPassword" placeholder="" required="" minlength="8" maxlength="20">*@
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">
+                                Şifre Tekrar
+                            </label>
+                            @Html.TextBoxFor(x => x.AdvertiserPassword1, new { @class = "form-control", @type = "password" })
+                            @Html.ValidationMessageFor(x => x.AdvertiserPassword1, "", new { @class = "text-danger" })
+                            @*<input type="password" class="form-control" id="AdvertiserPassword1" name="AdvertiserPassword1" placeholder="" required="" minlength="8" maxlength="20">*@
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+

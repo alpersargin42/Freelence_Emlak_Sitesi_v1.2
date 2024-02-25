@@ -1,0 +1,74 @@
+﻿@model IEnumerable<EntityLayer.Concrate.Category>
+
+<head>
+    <link href="~/css/newcss.css" rel="stylesheet" />
+</head>
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="counter">
+                <div class="counter-icon">
+                    <span><i class="fa fa-home"></i></span>
+                </div>
+                <h3>Daire</h3>
+                <span class="counter-value">1000</span><h3>+</h3>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="counter">
+                <div class="counter-icon">
+                    <span><i class="fa fa-tree"></i></span>
+                </div>
+                <h3>Arsa-Tarla</h3>
+                <span class="counter-value">500</span><h3>+</h3>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="counter">
+                <div class="counter-icon">
+                    <span><i class="fa fa-car"></i></span>
+                </div>
+                <h3>Araba</h3>
+                <span class="counter-value">700</span><h3>+</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card border-0">
+                    <div class="card-body bg-dec72b text-center">
+                        <a href="/Estate/Kategorili/@item.CategoryID" class="btn btn-primary btn-block btn-green" style="color: #ffffff; font-size: 23px; text-decoration: none; border-radius: 20px; none; display: block; padding: 40px 10px;">
+                            @item.CategoryName
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.counter-value').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 3500,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+    });
+</script>

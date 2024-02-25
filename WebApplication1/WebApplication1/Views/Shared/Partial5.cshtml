@@ -1,0 +1,43 @@
+﻿@using BusinessLayer.Concrete
+@using DataAccessLayer.EntityFramework
+@model IEnumerable<EntityLayer.Concrate.Estate>
+
+@{
+    EstateManager em = new EstateManager(new EfEstateRepository());
+    var values = em.GetListWithCategory();
+
+    // Order by creation date and take the top 3.
+    var latest3Estates = values.OrderByDescending(item => item.EstateCreateDate).Take(3).ToList();
+}
+
+<div class="single-gd tech-btm">
+    @if (latest3Estates != null && latest3Estates.Any())
+    {
+        <h4>Son Eklenen İlanlar</h4>
+        @foreach (var item in latest3Estates)
+        {
+            <div class="blog-grids">
+                <div class="blog-grid-left">
+                    <a href="/Estate/EstateReadAll/@item.EstateID">
+                        <img src="@item.EstateImage" class="card-img-top img-fluid" alt="" style="width: 400px; height: 200px;">
+                    </a>
+                </div>
+                <div class="blog-grid-right">
+                    <h5>
+                        <a href="/Estate/EstateReadAll/@item.EstateID">@item.EstateTitle</a>
+                    </h5>
+                    <div class="sub-meta">
+                        <span>
+                            <i class="far fa-clock"></i> @item.EstateCreateDate.ToString("dd MMM, yyyy")
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br/>
+        }
+    }
+    else
+    {
+        // Handle the case where there are no estates.
+    }
+</div>

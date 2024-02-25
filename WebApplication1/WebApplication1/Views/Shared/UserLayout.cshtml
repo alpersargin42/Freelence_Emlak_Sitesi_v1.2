@@ -1,0 +1,259 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Heryer Emlak</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="~/statics/logo1.ico" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="~/CoreBlogTema/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="~/CoreBlogTema/web/css/single.css">
+	<link href="~/CoreBlogTema/web/css/style.css" rel='stylesheet' type='text/css' />
+	<link href="~/CoreBlogTema/web/css/fontawesome-all.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+		  rel="stylesheet">
+
+	<style>
+		/* Yeşil buton rengi */
+		.btn-green {
+			background-color: #dec72b;
+			color: #000;
+			height: 110px; /* 175 px yükseklik */
+			border: 1px solid #dec72b; /* 1 px kalınlığında yeşil border */
+			transition: background-color 0.3s ease, border-color 0.3s ease; /* Hover efekti için geçiş süresi ekleyin */
+		}
+
+			/* Hover olduğunda yeşil yap */
+			.btn-green:hover {
+				background-color: #dec72b;
+				border-color: #dec72b;
+			}
+
+		.logo img {
+			max-width: 100%;
+			height: 35px;
+		}
+
+	</style>
+</head>
+<body>
+	<!--Header-->
+	<header>
+		<div class="top-bar_sub_w3layouts container-fluid">
+			<div class="row">
+				<div class="col-md-4 logo text-left">
+					<a class="navbar-brand" href="/Estate/Index">
+						<img src="~/statics/logo1.png" alt="Asker Hoca Emlak Logo">
+						Heryer Emlak
+					</a>
+				</div>
+				@await Html.PartialAsync("Partial2")
+
+				<div class="col-md-4 log-icons text-right">
+
+					<ul class="social_list1 mt-3">
+
+						<li>
+							<a href="#" class="facebook1 mx-2">
+								<i class="fab fa-facebook-f"></i>
+
+							</a>
+						</li>
+						<li>
+							<a href="#" class="twitter2">
+								<i class="fab fa-twitter"></i>
+
+							</a>
+						</li>
+						<li>
+							<a href="#" class="dribble3 mx-2">
+								<i class="fab fa-dribbble"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="pin">
+								<i class="fab fa-pinterest-p"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		@await Html.PartialAsync("Partial1")
+
+		
+	</header>
+	<!--//header-->
+
+	<!--/main-->
+	@RenderBody()
+	<!--//main-->
+	<!--footer-->
+	@await Html.PartialAsync("Partial4")
+
+	<!---->
+
+	<!-- js -->
+	<script src="~/CoreBlogTema/js/jquery-2.2.3.min.js"></script>
+	<!-- //js -->
+
+
+	<!-- desoslide-JavaScript -->
+	<script src="~/CoreBlogTema/js/jquery.desoslide.js"></script>
+	<script>
+		$('#demo1_thumbs').desoSlide({
+			main: {
+				container: '#demo1_main_image',
+				cssClass: 'img-responsive'
+			},
+			effect: 'sideFade',
+			caption: true
+		});
+	</script>
+
+	<!-- requried-jsfiles-for owl -->
+	<script>
+		$(window).load(function () {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 3,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: {
+					portrait: {
+						changePoint: 480,
+						visibleItems: 1
+					},
+					landscape: {
+						changePoint: 640,
+						visibleItems: 2
+					},
+					tablet: {
+						changePoint: 768,
+						visibleItems: 3
+					}
+				}
+			});
+
+		});
+	</script>
+	<script>
+		$(window).load(function () {
+			$("#flexiselDemo2").flexisel({
+				visibleItems: 3,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: {
+					portrait: {
+						changePoint: 480,
+						visibleItems: 1
+					},
+					landscape: {
+						changePoint: 640,
+						visibleItems: 2
+					},
+					tablet: {
+						changePoint: 768,
+						visibleItems: 3
+					}
+				}
+			});
+
+		});
+	</script>
+	<script src="~/CoreBlogTema/js/jquery.flexisel.js"></script>
+	<!-- //password-script -->
+	<!--/ start-smoth-scrolling -->
+	<script src="~/CoreBlogTema/js/move-top.js"></script>
+	<script src="~/js/site.js"></script>
+
+	<script src="~/CoreBlogTema/js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	<!--// end-smoth-scrolling -->
+
+	<script>
+		$(document).ready(function () {
+
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+			};
+
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<a href="#home" class="scroll" id="toTop" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+	<!-- //Custom-JavaScript-File-Links -->
+	<script src="~/CoreBlogTema/js/bootstrap.js"></script>
+
+
+
+
+	<script>
+		$(document).ready(function () {
+			/*
+									var defaults = {
+							  			containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear' 
+							 		};
+									*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<a href="#home" class="scroll" id="toTop" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+	<!-- //Custom-JavaScript-File-Links -->
+	<script src="~/CoreBlogTema/js/bootstrap.js"></script>
+	<!-- JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

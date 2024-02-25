@@ -1,0 +1,113 @@
+﻿@model IEnumerable<EntityLayer.Concrate.Estate>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+    int estateCount = Model.Count();
+
+}
+<style>
+    h3.tittle {
+        text-align: center;
+        font-size: 2.5em;
+        color: #2c363e;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+        font-weight: 600;
+    }
+    .btnab {
+        background-color: #dec72b;
+        color: white;
+    }
+    /* Paragraflar */
+    .left-blog-info-w3layouts-agileits p {
+        width: 100%; /* Paragrafların genişliği, sayfa genişliği kadar olacak */
+        text-align: left; /* Paragrafları sağ ve sol kenarlara hizala */
+        margin-bottom: 20px; /* Paragraflar arası boşluk */
+    }
+</style>
+
+
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Hakkımızda</h3>
+
+        <div class="row inner-sec">
+            <!--left-->
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                <div class="blog-grid-top">
+                    <div class="blog_info_left_grid">
+                        @*                         <a href="#">
+                        <img src="~/statics/emlak2.jpg" class="img-fluid" alt="">
+                        </a> *@
+                        <div class="col-lg-12" style=" text-align: left;">
+                            <h3 class="text-center">
+                                Heryer Emlak: Karaman'da 1965'ten Beri Güvenilir Emlak Hizmeti
+                            </h3>
+                            <br />
+
+                            <p class="text-justify">
+                                Heryer Emlak, 1965 yılından beri Karaman ve çevresinde müşterilerine güvenilir emlak hizmetleri sunmaktadır. Köklü bir geçmişe sahip olan şirketimiz, sektördeki deneyimi ve uzmanlığıyla müşterilerine kaliteli bir hizmet sunmayı amaçlamaktadır.
+                            </p>
+                            <br />
+
+                            <p>
+                                Kurulduğumuz günden bu yana, müşteri memnuniyetini her zaman ön planda tutarak, emlak ihtiyaçlarına yönelik en iyi çözümleri sunmaya odaklandık. Karaman ve çevresindeki emlak piyasasını iyi tanıyan uzman ekibimiz, müşterilerimizin beklentilerini en iyi şekilde karşılamak için çaba göstermektedir.
+                            </p>
+                            <br />
+
+                            <p>
+                                Heryer Emlak olarak, dürüstlük, şeffaflık ve güvenilirlik ilkelerine bağlı kalarak çalışıyoruz. Müşterilerimize her adımda doğru bilgi ve danışmanlık sunarak, onların güvenini kazanmayı ve uzun vadeli ilişkiler kurmayı hedefliyoruz.
+                            </p>
+                            <br />
+
+                            <p>
+                                Şirketimiz, satış, kiralama, değerleme ve danışmanlık gibi çeşitli emlak hizmetleri sunmaktadır. Her müşterimizin ihtiyaçlarına özel çözümler üretiyor ve onların memnuniyetini sağlamak için çalışıyoruz. Ayrıca, yatırım yapmak isteyen müşterilerimize piyasadaki fırsatları belirleme konusunda destek oluyor ve en doğru yatırımı yapmalarına yardımcı oluyoruz.
+                            </p>
+                            <br />
+
+                            <p>
+                                Heryer Emlak, teknolojiyi etkin bir şekilde kullanarak müşterilerimize daha hızlı ve verimli hizmet sunmayı amaçlamaktadır. Güncel dijital platformları takip ederek, müşterilerimize kolay ve kullanıcı dostu bir deneyim sunmaya özen gösteriyoruz.
+                            </p>
+                            <br />
+
+                            <p>
+                                Karaman'da 56 yıldan fazla bir süredir hizmet veren Heryer Emlak, gururla müşterilerine hizmet etmeye devam etmektedir. Güvenilir ve profesyonel hizmetlerimizle, müşterilerimizin emlak ihtiyaçlarını karşılamak için buradayız.
+                            </p>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//left-->
+            <!--right-->
+            <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                <div class="right-blog-info text-left">
+                    <div class="tech-btm widget_social">
+                        <br />
+                        <h4>İlanlarımız</h4>
+                        <ul>
+                            <li>
+                                <a class="btnab" href="#">
+                                    <i class="fa fa-bars"></i>
+
+                                    <span class="count">@estateCount</span> Toplam İlan
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <!--//right-->
+
+        </div>
+    </div>
+</section>
+
+
+
+
+

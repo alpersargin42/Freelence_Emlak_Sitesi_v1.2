@@ -1,0 +1,68 @@
+﻿:root {
+    --main-color: #dec72b;
+}
+
+.demo {
+    background-color: #eee;
+}
+
+.counter {
+    color: var(--main-color);
+    background: linear-gradient(-135deg, var(--main-color), var(--main-color) 38%, transparent 38%, transparent 65%, var(--main-color) 65%);
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    width: 200px;
+    padding: 30px 10px 25px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+    .counter:before {
+        content: '';
+        background-color: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+        position: absolute;
+        left: 5px;
+        right: 5px;
+        top: 5px;
+        bottom: 5px;
+        z-index: -1;
+    }
+
+    .counter .counter-icon {
+        font-size: 35px;
+        line-height: 35px;
+        margin: 0 0 18px;
+    }
+
+    .counter h3 {
+        font-size: 19px;
+        font-weight: 700;
+        text-transform: capitalize;
+        margin: 0 0 6px;
+    }
+
+    .counter .counter-value {
+        font-size: 33px;
+        font-weight: 600;
+        display: block;
+    }
+
+    .counter.purple {
+        --main-color: #9B60A7;
+    }
+
+    .counter.yellow {
+        --main-color: #EBA118;
+    }
+
+    .counter.blue {
+        --main-color: #1496A1;
+    }
+
+@media screen and (max-width: 990px) {
+    .counter {
+        margin-bottom: 40px;
+    }
+}

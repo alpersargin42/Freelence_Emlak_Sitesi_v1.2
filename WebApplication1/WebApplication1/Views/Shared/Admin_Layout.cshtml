@@ -1,0 +1,77 @@
+﻿@using DataAccessLayer.Concrete
+
+@{
+    Layout = null;
+    var username = User.Identity.Name;
+    ViewBag.v = username;
+    Context c = new Context();
+    var name = c.Advertisers.Where(x => x.AdvertiserMail == username).Select(y => y.AdvertiserName).FirstOrDefault();
+    ViewBag.v2 = name;
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Heryer Emlak</title>
+    <link rel="stylesheet" href="~/admin/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/admin/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/admin/assets/css/style.css">
+    <link rel="shortcut icon" href="~/statics/logo1.ico" />
+</head>
+<body>
+    <div class="container-scroller">
+        <!-- partial:~/admin/partials/_navbar.html -->
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+@*                 <a class="navbar-brand brand-logo" style="text-align: center; width:50px;" href="#"><img src="~/statics/logo1.png" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="#"><img src="~/statics/logo1.png" alt="logo" /></a> *@
+                <h3>Admin PANELİ</h3>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item nav-logout d-none d-lg-block" style="background-color: lightseagreen;">
+                        <a class="nav-link" href="/Estate/Index" style="color: white;">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="nav-item nav-logout d-none d-lg-block" style="background-color: crimson;">
+                        <a class="nav-link" href="/AdminKullanici/Index" style="color: white;">
+                            İlanlar
+                        </a>
+                    </li>
+                    <li class="nav-item nav-logout d-none d-lg-block" style="background-color: dimgray;">
+                        <a class="nav-link" href="/AdminKullanici/Advertisers" style="color: white;">
+                            Kullanıcılar
+                        </a>
+                    </li>
+                    <li class="nav-item nav-logout d-none d-lg-block">
+                        <a class="nav-link" href="/Login/LogOut">
+                            <i class="mdi mdi-power"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        <div class="container-fluid">
+            <div>
+                <div>
+                    @RenderBody()
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="~/admin/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/admin/assets/js/off-canvas.js"></script>
+    <script src="~/admin/assets/js/hoverable-collapse.js"></script>
+    <script src="~/admin/assets/js/misc.js"></script>
+
+</body>
+</html>
+

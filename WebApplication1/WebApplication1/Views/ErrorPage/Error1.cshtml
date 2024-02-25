@@ -1,0 +1,131 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Hata Sayfası</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+@*     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-+D5eMjw5LP7tq2Zldh+oMTDUuwpLeJoxqCKdF7KlNnScqXNT39lOAo7Ou3FfD1zTKLe5CXO4MCZ9rplfiICltA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" /> *@
+    <style>
+        /* Yeni stiller buraya eklenecek */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-heading {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #dc3545;
+        }
+
+        .error-message {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+
+        .error-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error-input {
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-right: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        .error-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+            .error-button:hover {
+                background-color: #0056b3;
+            }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+            .social-icons a {
+                color: #007bff;
+                margin-right: 10px;
+                font-size: 24px;
+                transition: color 0.3s ease;
+            }
+
+                .social-icons a:hover {
+                    color: #0056b3;
+                }
+
+        .copy-right {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+            .copy-right a {
+                color: #007bff;
+                transition: color 0.3s ease;
+            }
+
+                .copy-right a:hover {
+                    color: #0056b3;
+                }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <h3 class="error-heading">404</h3>
+        <p class="error-message">Oops! Sayfa Bulunamadı</p>
+        <form action="/Estate/Index" method="post" class="error-form">
+            <input type="search" placeholder="Anasayfaya Git =====>" required="required" disabled=""
+                   class="error-input">
+            <button type="submit" class="error-button"><i class="fas fa-home"></i> Anasayfa</button>
+        </form>
+        <br />
+        <br />
+        <br />
+        <div class="copy-right">
+            <p>
+                © 2024 All Rights Reserved | Design by
+                <a href="https://www.linkedin.com/in/alper-sarg%C4%B1n-b14125201/" target="_blank">Alper Sargın</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

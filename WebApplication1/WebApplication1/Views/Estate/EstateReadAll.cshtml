@@ -1,0 +1,226 @@
+﻿@model IEnumerable<EntityLayer.Concrate.Estate>
+
+@{
+	ViewData["Title"] = "EstateDetails";
+	Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<style>
+		.image-popup {
+			display: none;
+			position: fixed;
+			z-index: 9999;
+			padding-top: 50px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0,0.9);
+		}
+
+			.image-popup img {
+				margin: auto;
+				display: block;
+				max-width: 80%;
+				max-height: 80%;
+			}
+
+		.close {
+			position: absolute;
+			top: 15px;
+			right: 35px;
+			color: #f1f1f1;
+			font-size: 40px;
+			font-weight: bold;
+			transition: 0.3s;
+		}
+
+			.close:hover,
+			.close:focus {
+				color: #bbb;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+		.thumbnail-link img {
+			width: 350px; /* Tüm resimlerin tek boyutu */
+			height: 250px;
+			transition: transform 0.3s; /* Büyüme animasyonu için geçiş efekti ekleyin */
+		}
+
+		.thumbnail-link:hover img {
+			transform: scale(1.1); /* Hover durumunda resmi 1.1 kat büyüt */
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<!--//banner-->
+	<section class="banner-bottom">
+		<!--/blog-->
+		<div class="container">
+			<div class="row">
+				<!--left-->
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+					@foreach (var item in Model)
+					{
+						var itemID = item.EstateID;
+						ViewBag.ItemID = itemID;
+						<div class="blog-grid-top">
+							<div class="b-grid-top">
+								<div class="blog_info_left_grid">
+									@if (!string.IsNullOrEmpty(item.EstateImage))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage')">
+											<img class="estate-image" src="@item.EstateImage" class="img-fluid" alt="">
+										</a>
+									}
+
+									@if (!string.IsNullOrEmpty(item.EstateImage2))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage2')">
+											<img class="estate-image" src="@item.EstateImage2" class="img-fluid" alt="">
+										</a>
+									}
+
+									@if (!string.IsNullOrEmpty(item.EstateImage3))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage3')">
+											<img class="estate-image" src="@item.EstateImage3" class="img-fluid" alt="">
+										</a>
+									}
+
+									@if (!string.IsNullOrEmpty(item.EstateImage4))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage4')">
+											<img class="estate-image" src="@item.EstateImage4" class="img-fluid" alt="">
+										</a>
+									}
+
+									@if (!string.IsNullOrEmpty(item.EstateImage5))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage5')">
+											<img class="estate-image" src="@item.EstateImage5" class="img-fluid" alt="">
+										</a>
+									}
+									@if (!string.IsNullOrEmpty(item.EstateImage6))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage6')">
+											<img class="estate-image" src="@item.EstateImage6" class="img-fluid" alt="">
+										</a>
+									}
+									@if (!string.IsNullOrEmpty(item.EstateImage7))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage7')">
+											<img class="estate-image" src="@item.EstateImage7" class="img-fluid" alt="">
+										</a>
+									}
+									@if (!string.IsNullOrEmpty(item.EstateImage8))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage8')">
+											<img class="estate-image" src="@item.EstateImage8" class="img-fluid" alt="">
+										</a>
+									}
+									@if (!string.IsNullOrEmpty(item.EstateImage9))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage9')">
+											<img class="estate-image" src="@item.EstateImage9" class="img-fluid" alt="">
+										</a>
+									}
+									@if (!string.IsNullOrEmpty(item.EstateImage10))
+									{
+										<a href="#" class="thumbnail-link" onclick="showImage('@item.EstateImage10')">
+											<img class="estate-image" src="@item.EstateImage10" class="img-fluid" alt="">
+										</a>
+									}
+
+								</div>
+								<div class="blog-info-middle">
+									<ul>
+										<li>
+											<a href="#">
+												<i class="far fa-calendar-alt"></i> @(((DateTime)item.EstateCreateDate).ToString("dd-MMM-yyyy"))
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<h3>
+								@item.EstateTitle
+							</h3>
+							<p>
+								@item.EstateContent
+							</p>
+						</div>
+					}
+					<div id="imagePopup" class="image-popup">
+						<span class="close" onclick="closePopup()">&times;</span>
+						<img id="popupImage" src="" alt="">
+					</div>
+
+					@await Component.InvokeAsync("CommentListByEstate", new { id = ViewBag.i })
+					@await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml", new { id = ViewBag.ItemID })
+
+				</div>
+
+				<!--//left-->
+				<!--right-->
+				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+					<div class="right-blog-info text-left">
+						@await Html.PartialAsync("Partial6")
+
+						@await Html.PartialAsync("Partial5")
+
+					</div>
+			</div>
+		</div>
+
+		</aside>
+		<!--//right-->
+		</div>
+		</div>
+	</section>
+	<!--//main-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCKSgafpy5gwNqKmgUfIBraVwkKI+Cz0SEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		function showImage(imageUrl) {
+			var img = new Image();
+			img.onload = function () {
+				var imgWidth = this.width;
+				var imgHeight = this.height;
+
+				// Resmin boyutunu kontrol ederek, büyüklük oranını ayarlayın
+				var maxWidth = window.innerWidth * 0.8; // Örneğin, pencere genişliğinin %80'i
+				var maxHeight = window.innerHeight * 0.8; // Örneğin, pencere yüksekliğinin %80'i
+
+				var scaleFactor = Math.min(maxWidth / imgWidth, maxHeight / imgHeight);
+
+				// Popup içindeki resmin boyutunu güncelleyin
+				var popupImage = document.getElementById("popupImage");
+				popupImage.style.width = imgWidth * scaleFactor + "px";
+				popupImage.style.height = imgHeight * scaleFactor + "px";
+				popupImage.src = imageUrl;
+
+				// Popup'ı görünür hale getirin
+				document.getElementById("imagePopup").style.display = "block";
+			};
+			img.src = imageUrl;
+		}
+
+		function closePopup() {
+			document.getElementById("imagePopup").style.display = "none";
+		}
+	</script>
+
+
+</body>
+</html>

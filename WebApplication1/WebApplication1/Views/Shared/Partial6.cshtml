@@ -1,0 +1,37 @@
+﻿@using DataAccessLayer.Concrete
+@model IEnumerable<EntityLayer.Concrate.Estate>
+
+<style>
+    .yellow-box {
+        background-color: white;
+        color: black;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 2px solid black; /* Çerçeve ekleyin */
+        border-radius: 5px; /* Kenar yumuşatma */
+    }
+</style>
+
+@foreach (var item in Model)
+{
+    using (Context c = new Context())
+    {
+        var advertiser = c.Advertisers.FirstOrDefault(x => x.AdvertiserID == item.AdvertiserID);
+        <div class="tech-btm">
+            <div class="yellow-box">
+                <div class="estate-details">
+                    @for (int i = 1; i <= 15; i++)
+                    {
+                        var propertyValue = item.GetType().GetProperty($"EstateOzellik{i}")?.GetValue(item, null)?.ToString();
+                        if (!string.IsNullOrWhiteSpace(propertyValue))
+                        {
+                            <h4>@propertyValue</h4>
+                        }
+                    }
+                    <br/>
+                    <a href="/Message/SendMessage/@item.AdvertiserID" class="btn btn-dark">İlanı Veren Kişi: @(advertiser != null ? advertiser.AdvertiserName : "Bilinmiyor")</a>
+                </div>
+            </div>
+        </div>
+    }
+}

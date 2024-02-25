@@ -1,0 +1,327 @@
+﻿@using EntityLayer.Concrate
+@model List<Estate>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/UserLayout.cshtml";
+	var populerEstates = Model.Where(x => x.EstatePopu == true).ToList();
+}
+<style>
+	h3.tittle {
+		text-align: center;
+		font-size: 2.5em;
+		color: #2c363e;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+		font-weight: 600;
+	}
+	.left-blog-info-w3layouts-agileits .card img {
+		width: 100%; /* Resimlerin kart genişliğine uygun genişlikte olması */
+		height: 200px; /* Resimlerin sabit yüksekliği (istediğiniz değeri ayarlayın) */
+		object-fit: cover; /* Resimlerin orantılı bir şekilde sığması */
+	}
+
+	.left-blog-info-w3layouts-agileits .card .card-text {
+		max-height: 100px; /* Metnin maksimum yüksekliği (istediğiniz değeri ayarlayın) */
+		overflow: hidden; /* Metnin kartın dışına taşmasını önler */
+	}
+
+	.themecolor {
+		background-color: #dec72b;
+		color: black;
+	}
+	.yellow{
+		border-radius: 0;
+		padding: 0.55em 2em;
+		letter-spacing: 1px;
+		background: #dec72b;
+		border: none;
+	}
+
+	.yellow:hover, a.yellow:focus {
+		background: #fff;
+		color: #222;
+		box-shadow: none !important;
+	}
+
+	a.btn.btn-primary.read-m {
+		border-radius: 0;
+		padding: 0.55em 2em;
+		letter-spacing: 1px;
+		background: #dec72b;
+		border: none;
+	}
+
+		a.btn.btn-primary.read-m:hover, a.btn.btn-primary.read-m:focus {
+			background: #fff;
+			color: #222;
+			box-shadow: none !important;
+		}
+
+	ul.blog-icons i {
+		color: #dec72b;
+	}
+
+	.bann {
+		background-color: #dec72b;
+		color: black;
+		transition: color 0.3s; /* Renk değişikliğinin süresi */
+	}
+
+		.bann:hover {
+			color: white; /* Hover durumunda beyaz renk */
+		}
+
+	.carousel-item {
+		background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner1.jpg') no-repeat;
+		background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner1.jpg') no-repeat;
+		background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner1.jpg') no-repeat;
+		background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner1.jpg') no-repeat;
+		background-size: cover;
+	}
+
+		.carousel-item.item2 {
+			background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner2.jpg') no-repeat;
+			background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner2.jpg') no-repeat;
+			background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner2.jpg') no-repeat;
+			background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner2.jpg') no-repeat;
+			background-size: 100% 100%;
+		}
+
+		.carousel-item.item3 {
+			background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner3.jpg') no-repeat;
+			background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner3.jpg') no-repeat;
+			background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner3.jpg') no-repeat;
+			background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner3.jpg') no-repeat;
+			background-size: 100% 100%;
+		}
+
+		.carousel-item.item4 {
+			background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner4.jpg') no-repeat;
+			background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner4.jpg') no-repeat;
+			background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner4.jpg') no-repeat;
+			background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url('/bannerimages/banner4.jpg') no-repeat;
+			background-size: 100% 100%;
+		}
+
+
+	.carousel-caption h2,
+	.carousel-caption h3 {
+		letter-spacing: 2px;
+		line-height: 1.4em;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+		font-size: 3.5em;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	.carousel-caption h5 {
+		font-size: 1em;
+		letter-spacing: 1px;
+	}
+
+	.carousel-caption span {
+		display: block;
+	}
+
+	.carousel-indicators {
+		bottom: 17%;
+		left: 0%;
+		cursor: pointer;
+		display: none;
+	}
+
+	.bnr-button {
+		margin-top: 2em;
+	}
+
+	.carousel-control {
+		line-height: 42em;
+	}
+
+	.carousel-indicators li {
+		display: inline-block;
+		max-width: 20px;
+		height: 19px;
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-o-border-radius: 50%;
+		-ms-border-radius: 50%;
+		margin: 0 8px;
+	}
+
+	.carousel-indicators .active {
+		background: #01cd74;
+	}
+
+	a.btn.btn-primary.read-m {
+		border-radius: 0;
+		padding: 0.55em 2em;
+		letter-spacing: 1px;
+		background: #01cd74;
+		border: none;
+	}
+
+		a.btn.btn-primary.read-m:hover, a.btn.btn-primary.read-m:focus {
+			background: #fff;
+			color: #222;
+			box-shadow: none !important;
+		}
+
+	.read {
+		margin-top: 1em;}
+</style>
+
+<!-- Banner -->
+<div class="banner">
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="carousel-item active">
+				<div class="carousel-caption">
+					<h3>Create the lifestyle<span>you desire</span></h3>
+					<div class="read">
+						<a href="/Estate/Kategorili/1" class="btn bann read-m">Hizmetler</a>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item item2">
+				<div class="carousel-caption">
+					<h3>
+						Engaging Purposeful
+						<span>and Creative</span>
+					</h3>
+					<div class="read">
+						<a href="/Estate/Kategorili/1" class="btn bann read-m">Hizmetler</a>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item item3">
+				<div class="carousel-caption">
+					<h3>
+						Create the lifestyle
+						<span>you desire</span>
+					</h3>
+					<div class="read">
+						<a href="/Estate/Kategorili/1" class="btn bann read-m">Hizmetler</a>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item item4">
+				<div class="carousel-caption">
+					<h3>
+						Engaging Purposeful
+						<span>and Creative</span>
+					</h3>
+					<div class="read">
+						<a href="/Estate/Kategorili/1" class="btn bann read-m">Hizmetler</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+</div>
+<!--//banner-->
+
+<div class="container">
+	<div class="row">
+		<!-- Daire Butonu -->
+		<div class="col-md-4">
+			<div class="card border-0">
+				<div class="card-body bg-dec72b text-center">
+					<a href="/Estate/Kategorili/1" class="btn btn-primary btn-block btn-green" style="color: #ffffff; text-decoration: none; font-size: 23px; border-radius: 20px; display: block; padding: 40px 10px;">
+						Daire
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Arsa/Tarla Butonu -->
+		<div class="col-md-4">
+			<div class="card border-0">
+				<div class="card-body bg-dec72b text-center">
+					<a href="/Estate/Kategorili/2" class="btn btn-primary btn-block btn-green" style="color: #ffffff; font-size: 23px; text-decoration: none; border-radius: 20px; display: block; padding: 40px 10px;">
+						Arsa/Tarla
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Araba Butonu -->
+		<div class="col-md-4">
+			<div class="card border-0">
+				<div class="card-body bg-dec72b text-center">
+					<a href="/Estate/Kategorili/3" class="btn btn-primary btn-block btn-green" style="color: #ffffff; font-size: 23px; text-decoration: none; border-radius: 20px; display: block; padding: 40px 10px;">
+						Araba
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+<section class="main-content-w3layouts-agileits">
+	<div class="container">
+		<h3 class="tittle">Emlakta Moda</h3>
+		<div class="inner-sec">
+			<!--left-->
+			<div class="left-blog-info-w3layouts-agileits text-left">
+				<div class="row">
+					@foreach (var item in populerEstates)
+					{
+						<div class="col-lg-4 card">
+							<a href="/Estate/EstateReadAll/@item.EstateID">
+								<img src="@item.EstateImage" class="card-img-top img-fluid" alt="">
+							</a>
+							<div class="card-body">
+								<ul class="blog-icons my-4">
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i> @item.EstateCreateDate.ToString("yyyy-MM-dd")
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fa fa-bars"></i> @item.Category.CategoryName
+										</a>
+									</li>
+
+								</ul>
+								<h5 class="card-title">
+									<a href="/Estate/EstateReadAll/@item.EstateID">@item.EstateTitle</a>
+								</h5>
+								@* <p class="card-text mb-3">@item.EstateContent</p> *@
+								<a href="/Estate/EstateReadAll/@item.EstateID" class="btn btn-primary yellow">
+									>@(string.Format("{0:#,###}", item.EstatePrice)) ₺
+								</a>@* <a href="/Estate/EstateReadAll/@item.EstateID" class="btn btn-primary read-m"> >@item.EstatePrice ₺</a> *@
+							</div>
+						</div>
+					}
+
+				</div>
+				<!--//left-->
+			</div>
+		</div>
+	</div>
+</section>

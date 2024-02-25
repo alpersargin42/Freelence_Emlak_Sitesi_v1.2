@@ -1,0 +1,98 @@
+﻿<style>
+	.srch {
+		background-color: gray;
+		color: white;
+	}
+
+	/*--/navbar--*/
+
+	.navbar {
+		padding: 0em 4em;
+	}
+
+	.bg-light {
+		background-color: #f0f3f1 !important;
+	}
+
+	a.navbar-brand {
+		font-size: 2em;
+		font-weight: 700;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+		color: #3d3e48;
+		text-transform: uppercase;
+	}
+
+	.logo i {
+		color: #01cd74;
+		text-shadow: none;
+	}
+
+	li.nav-item {
+		margin: 0 1px;
+	}
+
+	.navbar-light .navbar-nav .nav-link {
+		padding: 0.6em 1.4em;
+		color: #333;
+		background: transparent;
+		text-transform: uppercase;
+		font-size: 0.9em;
+		letter-spacing: 1px;
+	}
+
+		.navbar-light .navbar-nav .show > .nav-link,
+		.navbar-light .navbar-nav .active > .nav-link,
+		.navbar-light .navbar-nav .nav-link.show,
+		.navbar-light .navbar-nav .nav-link.active,
+		.navbar-light .navbar-nav .nav-link:hover,
+		.navbar-light .navbar-nav .nav-link:focus {
+			background: #dec72b;
+			color: #fff;
+		}
+
+	.navbar-light .navbar-toggler-icon {
+		background-color: #dec72b; /* Sarı arkaplan rengi arama butonu için */
+	}
+
+	.dropdown-item {
+		padding: 0.2em 1.5rem;
+		font-size: 0.9em;
+	}
+</style>
+<div class="header_top" id="home">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/Estate/Index">
+						Anasayfa
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Estate/Kategorili/1">Hizmetler</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/About/Index">Hakkımızda</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Contact/Index">İletişim</a>
+				</li>
+			</ul>
+			<form action="@Url.Action("Search", "Search")" method="post" class="form-inline my-2 my-lg-0 header-search">
+				<input class="form-control mr-sm-2" type="search" placeholder="Arayınız..." name="query" required="">
+				<button class="btn my-sm-0 srch" type="submit">
+					<i class="fas fa-search"></i>
+				</button>
+			</form>
+
+		</div>
+	</nav>
+
+</div>

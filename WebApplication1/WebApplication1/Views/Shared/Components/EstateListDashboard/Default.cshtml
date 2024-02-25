@@ -1,0 +1,48 @@
+﻿@using EntityLayer.Concrate
+@model List<Estate>
+@{
+    var populerEstates = Model.Where(x => x.EstatePopu == true).ToList();
+}
+<link href="~/CoreBlogTema/web/css/fontawesome-all.css" rel="stylesheet">
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Emlakta Moda</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> İlan Adı </th>
+                                <th> Kategori </th>
+                                <th> Fiyatı </th>
+                                <th> Detaylar </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in populerEstates)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="@item.EstateImage" class="mr-2" alt="image"> @item.EstateTitle
+                                    </td>
+                                    <td>
+                                        <label class="badge badge-gradient-warning">@item.Category.CategoryName</label>
+                                    </td>
+                                    <td>
+                                        <label>@item.EstatePrice <i class="fas fa-lira-sign"></i></label>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <a href="/Estate/EstateReadAll/@item.EstateID" class="btn btn-github">Detaylar</a>
+                                        </label>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

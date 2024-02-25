@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Advertiser_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper">
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <h3 class="page-title">
+                        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                            <i class="mdi mdi-home"></i>
+                        </span> Dashboard
+                    </h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-danger card-img-holder text-white">
+                            <div class="card-body">
+                                <img src="~/admin/assets/images/dashboard/circle.svg" class="card-img-absolute"
+                                     alt="circle-image" />
+                                <h4 class="font-weight-normal mb-3">
+                                    Toplam Satıştaki Ürünler <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">@ViewBag.v1</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-info card-img-holder text-white">
+                            <div class="card-body">
+                                <img src="~/admin/assets/images/dashboard/circle.svg" class="card-img-absolute"
+                                     alt="circle-image" />
+                                <h4 class="font-weight-normal mb-3">
+                                    Sizin Ürünleriniz <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">@ViewBag.v2</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("EstateListDashboard")
+                @await Component.InvokeAsync("CategoryListDashboard")
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="~/inspinia-gh-pages/js/jquery-3.1.1.min.js"></script>
+    <script src="~/inspinia-gh-pages/js/popper.min.js"></script>
+    <script src="~/inspinia-gh-pages/js/bootstrap.js"></script>
+    <script src="~/inspinia-gh-pages/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/inspinia-gh-pages/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/inspinia-gh-pages/js/inspinia.js"></script>
+    <script src="~/inspinia-gh-pages/js/plugins/pace/pace.min.js"></script>
+</body>
+
+</html>
+
+
